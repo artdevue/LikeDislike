@@ -1,0 +1,100 @@
+/* ========== Global Styles ========== */
+/* Form wrapper */
+.likedislike { position:relative; margin:0 auto; padding:0; border:0; cursor:default; }
+.likedislike.left { margin-left:0; }
+.likedislike.right { margin-right:0; }
+
+/* Use pointer cursor for all input */
+.likedislike input, .likedislike button, .likedislike label { cursor:pointer; }
+.likedislike.disabled input, .likedislike.disabled button, .likedislike.disabled label { cursor:default; }
+
+/* Remove dotted outlines on buttons in FF: http://bit.ly/cTp1kC */
+.likedislike input::-moz-focus-inner { border:0; }
+
+/* Align spinner images */
+.likedislike .spinner { vertical-align:middle; }
+
+/* ========== Buttons Template ========== */
+.likedislike.buttons.disabled button, .likedislike.buttons.disabled .question { display:none; }
+
+/* ========== Mini Poll Template ========== */
+.likedislike.mini_poll { height:61px; background:#eee; border:3px double #999; line-height:30px; color:#000; }
+.likedislike.mini_poll label { position:absolute; top:0; left:0; right:0; margin:0; height:30px; text-align:left; }
+.likedislike.mini_poll label input {display:inline}
+.likedislike.mini_poll label.option_down { top:30px; border-top:1px solid #999; }
+.likedislike.mini_poll label:hover { background:#fff; }
+.likedislike.mini_poll strong { position:absolute; top:0; right:5px; text-align:right; }
+.likedislike.mini_poll .graph { display:none; position:absolute; top:0; left:0; height:30px; background:#bbb; }
+.likedislike.mini_poll .graph.down { top:31px; }
+.likedislike.mini_poll input[type="submit"] { display:none; }
+.likedislike.mini_poll.disabled input { display:none; }
+.likedislike.mini_poll.disabled label { padding-left:5px; }
+.likedislike.mini_poll.disabled label:hover { background:none; }
+.likedislike.mini_poll.disabled .graph { display:block; }
+
+/* ========== Mini likedislik Template ========== */
+.likedislike.mini_likedislik .result1 { display:block; margin:0 0 0 38px; height:16px; font-size:13px; line-height:16px; text-align:left; }
+.likedislike.mini_likedislik input { position:absolute; top:0; left:0; width:16px; height:16px; background:url(images/mini_likedislik.png) no-repeat 0 0; border:0; text-indent:-9999px; }
+.likedislike.mini_likedislik input.down { left:18px; background-position:-16px 0; }
+.likedislike.mini_likedislik input:hover, .likedislike.mini_likedislik input:focus { background-position:0 -16px; }
+.likedislike.mini_likedislik input.down:hover, .likedislike.mini_likedislik input.down:focus { background-position:-16px -16px; }
+.likedislike.mini_likedislik input:active { background-position:0 -32px; }
+.likedislike.mini_likedislik input.down:active { background-position:-16px -32px; }
+.likedislike.mini_likedislik.disabled input, .likedislike.mini_likedislik.busy input { background-position:0 -48px; }
+.likedislike.mini_likedislik.disabled input.down, .likedislike.mini_likedislik.busy input.down { background-position:-16px -48px; }
+.likedislike.mini_likedislik.right input { left:auto; right:18px; }
+.likedislike.mini_likedislik.right input.down { right:0; }
+.likedislike.mini_likedislik.right .result1 { margin:0 38px 0 0; text-align:right; }
+
+/* ========== likedislik Up Template ========== */
+.likedislike.likedislik_up { width:100px; height:100px; background:url(images/likedislik_up.png); text-align:center; color:#000; }
+.likedislike.likedislik_up .result1 { position:absolute; top:3px; left:0; right:0; font:bold 40px/50px 'Myriad Pro',sans-serif; letter-spacing:-0.05em; }
+.likedislike.likedislik_up .result1.squeeze { font-size:32px; }
+.likedislike.likedislik_up .likename, .likedislike.likedislik_up .likeclose, .likedislike.likedislik_up .likethanks {position: absolute;top: 63px; left:0; right:0; color: #cccccc;text-transform:uppercase;letter-spacing: -0.05em;}
+.likedislike.likedislik_up .likename {top: 39px; color: #7c803f;}
+.likedislike.likedislik_up .likeclose {color: #292929;}
+.likedislike.likedislik_up .likeclose, .likedislike.likedislik_up .likethanks {display:none;font-size: 11px;line-height: 1.4;}
+.likedislike.likedislik_up.closed .likeclose, .likedislike.likedislik_up.user_voted .likethanks {display: block}
+.likedislike.likedislik_up.closed.user_voted .likethanks, .likedislike.likedislik_up.closed.busy .likethanks {display: none}
+.likedislike.likedislik_up input { position:absolute; left:0; bottom:0; padding:0; margin:0; width:100px; height:40px; background:url(images/likedislik_up.png) 0 -60px; border:0; text-indent:-9999px; }
+.likedislike.likedislik_up input:hover, .likedislike.likedislik_up input:focus { background-position:0 -100px; }
+.likedislike.likedislik_up input:active { background-position:0 -140px; }
+.likedislike.likedislik_up.user_voted input, .likedislike.likedislik_up.busy input { background-position:0 -180px; }
+.likedislike.likedislik_up.closed input { background-position:0 -220px; }
+
+/* ========== likedislik Up Down Template ========== */
+.likedislike.likedislik_up_down { width:300px; height:40px; background:url(images/likedislik_up_down.png) no-repeat 0 0; text-align:center; color:#000; }
+.likedislike.likedislik_up_down strong { position:absolute; top:0; padding-top:4px; width:100px; font:bold 32px/36px 'Myriad Pro',sans-serif; letter-spacing:-0.05em; }
+.likedislike.likedislik_up_down strong.squeeze { font-size:28px; }
+.likedislike.likedislik_up_down .result1 { left:0; }
+.likedislike.likedislik_up_down .result2 { right:0; }
+.likedislike.likedislik_up_down input { position:absolute; top:0; width:50px; height:40px; background:url(images/likedislik_up_down.png) no-repeat 50px 0; border:0; text-indent:-9999px; }
+.likedislike.likedislik_up_down input.up { left:100px; }
+.likedislike.likedislik_up_down input.down { right:100px; }
+.likedislike.likedislik_up_down input.up:hover, .likedislike.likedislik_up_down input.up:focus { background-position:-300px 0; }
+.likedislike.likedislik_up_down input.down:hover, .likedislike.likedislik_up_down input.down:focus { background-position:-350px 0; }
+.likedislike.likedislik_up_down input.up:active { background-position:-400px 0; }
+.likedislike.likedislik_up_down input.down:active { background-position:-450px 0; }
+.likedislike.likedislik_up_down.user_voted input.up, .likedislike.likedislik_up_down.busy input.up { background-position:-500px 0; }
+.likedislike.likedislik_up_down.user_voted input.down, .likedislike.likedislik_up_down.busy input.down { background-position:-550px 0; }
+.likedislike.likedislik_up_down.closed input.up { background-position:-600px 0; }
+.likedislike.likedislik_up_down.closed input.down { background-position:-650px 0; }
+.likedislike.likedislik_up_down .likeclose, .likedislike.likedislik_up_down .likethanks {position: absolute;top: 3px; left:0; right:0; color: #cccccc;text-transform:uppercase;letter-spacing: -0.05em;font-size: 11px;line-height: 1.4;width: 300px; display:none}
+.likedislike.likedislik_up_down.closed .likeclose {color: #292929; display:block}
+.likedislike.likedislik_up_down.user_voted .likethanks {display:block}
+.likedislike.likedislik_up_down.closed.user_voted .likethanks {display:none}
+
+/* ========== Up Down Template ========== */
+.likedislike.up_down { width:60px; height:100px; background:#fff; color:#000; }
+.likedislike.up_down .result1 { display:block; padding-top:32px; font:bold 30px/40px 'Myriad Pro',sans-serif; letter-spacing:-0.05em; text-align:center; }
+.likedislike.up_down .result1.squeeze { font-size:24px; }
+.likedislike.up_down input { position:absolute; left:0; margin:0; width:60px; height:30px; background:#ccc url(images/up_down.png) no-repeat 0 -30px; border:0; text-indent:-9999px;-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0); -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);}
+.likedislike.up_down input.up { top:0; }
+.likedislike.up_down input.down { bottom:0; background-position:0 -60px; }
+.likedislike.up_down input.up:hover, .likedislike.up_down input.up:focus { background-color:#8fd910; background-position:0 0; }
+.likedislike.up_down input.down:hover, .likedislike.up_down input.down:focus { background-color:#d52810; background-position:0 -90px; }
+.likedislike.up_down.disabled input, .likedislike.up_down.busy input { display:none; }
+
+/* ========== Fixes for IE ========== */
+/* For IE6 and 7: text-indent does not work to hide text on submit buttons */
+.likedislike.mini_likedislik input, .likedislike.likedislik_up input, .likedislike.likedislik_up_down input, .likedislike.up_down input { font-size:0; line-height:999px; }

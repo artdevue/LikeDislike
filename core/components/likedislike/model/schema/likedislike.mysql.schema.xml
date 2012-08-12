@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="likedislike" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" version="1.1">	
+	<object class="LikedislikeIpBlock" table="likedislike_ip_block" extends="xPDOSimpleObject">
+		<field key="ip" dbtype="varchar" precision="255" phptype="string" null="false" index="index" />
+		<field key="date" dbtype="int" precision="11" attributes="unsigned" phptype="integer" null="false" index="index" />
+		<field key="intro" dbtype="text" phptype="string" null="true" />
+
+		<index alias="ip" name="ip" primary="false" unique="false" type="BTREE" >
+			<column key="ip" length="" collation="A" null="false" />
+		</index>
+		<index alias="date" name="date" primary="false" unique="false" type="BTREE" >
+			<column key="date" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="LikedislikeItems" table="likedislike_items" extends="xPDOSimpleObject">
+		<field key="category" dbtype="varchar" precision="255" phptype="string" null="false" index="index" />
+		<field key="name" dbtype="varchar" precision="255" phptype="string" null="false" index="unique" />
+		<field key="closed" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" />
+		<field key="date" dbtype="int" precision="11" attributes="unsigned" phptype="integer" null="false" />
+		<field key="votes_up" dbtype="int" precision="11" phptype="integer" null="false" />
+		<field key="votes_down" dbtype="int" precision="11" phptype="integer" null="false" />
+
+		<index alias="UNIQUE_NAME" name="UNIQUE_NAME" primary="false" unique="true" type="BTREE" >
+			<column key="name" length="" collation="A" null="false" />
+		</index>
+		<index alias="category" name="category" primary="false" unique="false" type="BTREE" >
+			<column key="category" length="" collation="A" null="false" />
+		</index>
+	</object>
+	<object class="LikedislikeVotes" table="likedislike_votes" extends="xPDOSimpleObject">
+		<field key="item_id" dbtype="int" precision="11" attributes="unsigned" phptype="integer" null="false" />
+		<field key="value" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" />
+		<field key="ip" dbtype="varchar" precision="255" phptype="string" null="true" />
+		<field key="date" dbtype="int" precision="11" attributes="unsigned" phptype="integer" null="false" />
+		<field key="user_id" dbtype="int" precision="11" attributes="unsigned" phptype="integer" null="true" />
+                <aggregate alias="UserLike" class="modUser" local="user_id" foreign="id" cardinality="one" owner="foreign" />
+	</object>
+</model>
