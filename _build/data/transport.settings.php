@@ -65,7 +65,7 @@ $settings[5]->fromArray(array(
 $settings[6]= $modx->newObject('modSystemSetting');
 $settings[6]->fromArray(array(
     'key' => 'likedislike.ipLifetime',
-    'value' => '3600 * 24 * 365',
+    'value' => '0',
     'xtype' => 'textfield',
     'namespace' => 'likedislike',
     'area' => 'ip',
@@ -74,7 +74,7 @@ $settings[6]->fromArray(array(
 $settings[7]= $modx->newObject('modSystemSetting');
 $settings[7]->fromArray(array(
     'key' => 'likedislike.defaultTemplate',
-    'value' => 'mini_likedislike',
+    'value' => 'mini_likedislik',
     'xtype' => 'textfield',
     'namespace' => 'likedislike',
     'area' => 'templates',

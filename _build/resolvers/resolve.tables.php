@@ -18,16 +18,6 @@ if ($object->xpdo) {
 			$manager->createObjectContainer('LikedislikeIpBlock');
 			$manager->createObjectContainer('LikedislikeItems');
 			$manager->createObjectContainer('LikedislikeVotes');
-			$manager->createObjectContainer('ModGoods');
-			$manager->createObjectContainer('ModLog');
-			$manager->createObjectContainer('ModOrderedGoods');
-			$manager->createObjectContainer('ModOrders');
-			$manager->createObjectContainer('ModStatus');
-			$manager->createObjectContainer('ModWarehouse');
-			$manager->createObjectContainer('ModPayment');
-			$manager->createObjectContainer('ModGallery');
-			$manager->createObjectContainer('ModTags');
-			$manager->createObjectContainer('ModKits');
 			
 			break;
 		case xPDOTransport::ACTION_UPGRADE:
