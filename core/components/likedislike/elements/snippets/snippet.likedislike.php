@@ -12,6 +12,7 @@ if (!($likedislike instanceof likeDislike)) return ' no conect likeDislike';
 /* setup default properties */
 $options = $likedislike->options('options');
 $form = $likedislike->options('default_formats');
+$tpl = $modx->getOption('tpl',$scriptProperties,$modx->getOption('likedislike.defaultTemplate'));
 $likeId = $modx->getOption('likeId',$scriptProperties,$modx->resource->get('id'));
 $format = htmlspecialchars($modx->getOption('format',$scriptProperties,$form[$tpl]));
 $category = $modx->getOption('category',$scriptProperties,$modx->resource->get('class_key'));
@@ -25,7 +26,7 @@ $rez = $likedislike->load_item($category.'::'.$likeId.'::'.$name);
 
 $rez['color_up'] = $modx->getOption('color_up',$scriptProperties, $options['color_up']);
 $rez['color_down'] = $modx->getOption('color_down',$scriptProperties, $options['color_down']);
-$rez['tpl'] = $modx->getOption('tpl',$scriptProperties,$likedislike->options('default_template'));
+$rez['tpl'] = $tpl;
 $rez['up'] = $modx->getOption('up',$scriptProperties, $modx->lexicon('yes'));
 $rez['down'] = $modx->getOption('down',$scriptProperties, $modx->lexicon('no'));
 

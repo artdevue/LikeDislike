@@ -9,7 +9,8 @@
  
 $js = '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>';
 $js_connect = (boolean)$jsConnect ? $js : '';
+$like_url = $modx->config['assets_url'].'components/likedislike/';
 
 $modx->regClientCSS($modx->config['assets_url'].'components/likedislike/css/styles.css');
-$modx->regClientHTMLBlock($js_connect.'<script src="'.$modx->config['assets_url'].'components/likedislike/js/web/init.js.php"></script>');
+$modx->regClientHTMLBlock($js_connect.'<script type="text/javascript">var url = "'.$like_url.'";</script><script src="'.$like_url.'js/web/likedislike.js"></script>');
 return '';

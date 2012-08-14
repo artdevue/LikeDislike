@@ -5,6 +5,6 @@
 	<span class="result1 error">[[+like.result_up]] [[like.question]]</span>
 	<span class="question">[[+like.question]]</span>
 
-	<button class="up"   name="likedislike_vote" value="+1" [[+like.disabled]]>[[+like.up]]</button>
-	<button class="down" name="likedislike_vote" value="-1" [[+like.disabled]]>[[+like.down]]</button>
+	<button class="up"   name="likedislike_vote" value="+1" [[+like.disabled]]>[[%yes]]</button>
+	<button class="down" name="likedislike_vote" value="-1" [[+like.disabled]]>[[%no]]</button>
 </form>

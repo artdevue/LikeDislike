@@ -51,7 +51,7 @@ class likeDislike {
              ** * when creating a LikeDislike item, this template will be used.
              ** * * All available templates can be found in the templates directory. $modx->getOption('ace.theme', null, 'textmate')
              ** * * */
-            'default_template' => $this->modx->getOption('likedislike.default_template',$config,'mini_thumbs'),
+            'default_template' => $this->modx->getOption('likedislike.default_template',$config,'mini_likedislik'),
             /**
              ** (array) List of the default formats to use for each template. Each format string
              ** * defines which values to output and how. Six variables are available (wrapped in braces):

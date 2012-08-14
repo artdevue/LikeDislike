@@ -10,6 +10,29 @@ if (!($likedislike instanceof likeDislike)) return ' no conect likeDislike';
 if(! $likedislike->is_ajax())
     return json_encode(array('error' => 'ajax_error'));
 
+/** Check, asking us to return the settings?
+ * We are trying to translate in response to warnings and errors.
+ * So, do not share anything dangerous.
+ * */
+
+if (isset($_POST['likedislike_setting'])){
+    // Send the item back in JSON format
+    header('Content-Type: application/json; charset=utf-8');
+    
+    // Create an array to return the settings
+    $set_likeset = array();
+    // Fill the array
+    $set_likeset['invalid_id'] = $modx->lexicon('likedislike.likedislik_err_invalid_id');
+    $set_likeset['closed'] = $modx->lexicon('likedislike.likedislik_err_closed');
+    $set_likeset['ip_blocked'] = $modx->lexicon('likedislike.likedislik_err_ip_blocked');
+    $set_likeset['invalid_id'] = $modx->lexicon('likedislike.likedislik_err_login_required');
+    // If we have the array is empty, then return error
+    if(count($set_likeset) < 0)
+        return json_encode(array('error' => 'error'));
+    // All is well, return the settings
+    return json_encode(array('setting' => $set_likeset));
+}
+
 // Immediately get out of here if no valid vote was cast.
 // All required POST keys must be present.
 if ( ! isset($_POST['likedislike_id']) OR ! isset($_POST['likedislike_vote']) OR ! isset($_POST['likedislike_format']))
