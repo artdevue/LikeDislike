@@ -12,5 +12,5 @@ $js_connect = (boolean)$jsConnect ? $js : '';
 $like_url = $modx->config['assets_url'].'components/likedislike/';
 
 $modx->regClientCSS($modx->config['assets_url'].'components/likedislike/css/styles.css');
-$modx->regClientHTMLBlock($js_connect.'<script type="text/javascript">var url = "'.$like_url.'";</script><script src="'.$like_url.'js/web/likedislike.js"></script>');
+$modx->regClientHTMLBlock($js_connect.'<script type="text/javascript">var url_assets = "'.$like_url.'";</script><script src="'.$like_url.'js/web/likedislike.js"></script>');
 return '';

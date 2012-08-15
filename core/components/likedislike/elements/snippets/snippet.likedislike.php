@@ -27,8 +27,8 @@ $rez = $likedislike->load_item($category.'::'.$likeId.'::'.$name);
 $rez['color_up'] = $modx->getOption('color_up',$scriptProperties, $options['color_up']);
 $rez['color_down'] = $modx->getOption('color_down',$scriptProperties, $options['color_down']);
 $rez['tpl'] = $tpl;
-$rez['up'] = $modx->getOption('up',$scriptProperties, $modx->lexicon('yes'));
-$rez['down'] = $modx->getOption('down',$scriptProperties, $modx->lexicon('no'));
+$rez['up'] = $modx->getOption('up',$scriptProperties, $modx->lexicon('likedislike.up'));
+$rez['down'] = $modx->getOption('down',$scriptProperties, $modx->lexicon('likedislike.down'));
 
 $out = '';
 $closed = false;

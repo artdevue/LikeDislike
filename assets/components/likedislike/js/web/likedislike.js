@@ -6,7 +6,7 @@ $(function() { // Execute this code as soon as the DOM is loaded
             // Cast the setting!
 		$.ajax({
 			type: 'POST',
-			url: url + 'connectors/connector.php?action=web/like',
+			url: url_assets + 'connectors/connector.php?action=web/like',
 			cache: false,
 			dataType: 'json', // likedislike will send a json response
 			timeout: 15000, // Triggers the error handler after this duration
@@ -81,10 +81,10 @@ $(function() { // Execute this code as soon as the DOM is loaded
 
 		// Spinners
 		var spinner = {
-			small:       '<img class="spinner" alt="···" src="' + url + 'css/images/spinner_small.gif" />',
-			large:       '<img class="spinner" alt="···" src="' + url + 'css/images/spinner_large.gif" />',
-			large_green: '<img class="spinner" alt="···" src="' + url + 'css/images/spinner_large_green.gif" />',
-			large_red:   '<img class="spinner" alt="···" src="' + url + 'css/images/spinner_large_red.gif" />'
+			small:       '<img class="spinner" alt="···" src="' + url_assets + 'css/images/spinner_small.gif" />',
+			large:       '<img class="spinner" alt="···" src="' + url_assets + 'css/images/spinner_large.gif" />',
+			large_green: '<img class="spinner" alt="···" src="' + url_assets + 'css/images/spinner_large_green.gif" />',
+			large_red:   '<img class="spinner" alt="···" src="' + url_assets + 'css/images/spinner_large_red.gif" />'
 		};
 
 		// Show a busy indicator during the ajax request
@@ -117,7 +117,7 @@ $(function() { // Execute this code as soon as the DOM is loaded
 		// Cast the vote!
 		$.ajax({
 			type: 'POST',
-			url: url + 'connectors/connector.php?action=web/like',
+			url: url_assets + 'connectors/connector.php?action=web/like',
 			cache: false,
 			dataType: 'json', // likedislike will send a json response
 			timeout: 15000, // Triggers the error handler after this duration
@@ -211,10 +211,10 @@ $(function() { // Execute this code as soon as the DOM is loaded
 
 		// Preload spinner images for the templates in use
 		if ($forms.filter('.thumbs_up').length) {
-			var img = new Image; img.src = url + 'css/images/spinner_small.gif';
-			var img = new Image; img.src = url + 'css/images/spinner_large.gif';
-			var img = new Image; img.src = url + 'css/images/spinner_large_green.gif';
-			var img = new Image; img.src = url + 'css/images/spinner_large_red.gif';
+			var img = new Image; img.src = url_assets + 'css/images/spinner_small.gif';
+			var img = new Image; img.src = url_assets + 'css/images/spinner_large.gif';
+			var img = new Image; img.src = url_assets + 'css/images/spinner_large_green.gif';
+			var img = new Image; img.src = url_assets + 'css/images/spinner_large_red.gif';
 		}
 
 	});
