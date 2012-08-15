@@ -6,6 +6,8 @@
 $likedislike = $modx->getService('likedislike','likeDislike',$modx->getOption('likedislike.core_path',null,$modx->getOption('core_path').'components/likedislike/').'model/likedislike/',$scriptProperties);
 if (!($likedislike instanceof likeDislike)) return ' no conect likeDislike';
 
+$modx->lexicon->load($modx->getOption('cultureKey').':likedislike:default');
+
 // Only respond to requests for Ajax
 if(! $likedislike->is_ajax())
     return json_encode(array('error' => 'ajax_error'));
@@ -48,30 +50,30 @@ $id   = (int) $_POST['likedislike_id'];
 $vote = (int) $_POST['likedislike_vote'];
 $round = $_POST['likedislike_round'] ? (int) $_POST['likedislike_round'] : 0;
 
-// Is the current user blocked by IP?
+/// Is the current user blocked by IP?
 if ($likedislike->ip_blocked($likedislike->get_ip())){
-    $error = 'ip_blocked';
+    $error = array('error'=>'ip_blocked', 'lang_error'=>$modx->lexicon('likedislike.likedislik_err_ip_blocked'));
 }
 
 // Attempt to load the relevant LikrDislike item.
 // If the item doesn't exist, the id is invalid.
 elseif ( ! $item = $likedislike->load_item((int)$_POST['likedislike_id'])){
-    $error = 'invalid_id';
+    $error = array('error'=>'invalid_id', 'lang_error'=>$modx->lexicon('likedislike.likedislik_err_invalid_id'));
 }
 
 // Voting on the item has been closed
 elseif ($item['closed']){
-    $error = 'closed';
+    $error = array('error'=>'closed', 'lang_error'=>$modx->lexicon('likedislike.likedislik_err_closed'));
 }
 
 // The user has already voted on this item
 elseif ($item['user_voted']){
-    $error = 'already_voted';
+    $error = array('error'=>'already_voted', 'lang_error'=>$modx->lexicon('likedislike.likedislik_err_ip_blocked'));
 }
 
 // You have to be logged in to vote
-elseif ($likedislike->options('user_login_required') AND ! $this->modx->user->isAuthenticated($modx->context->get('key'))){
-    $error = 'login_required';
+elseif ($likedislike->options('user_login_required') AND !$this->modx->user->isAuthenticated($modx->context->get('key'))){
+    $error = array('error'=>'login_required', 'lang_error'=>$modx->lexicon('likedislike.likedislik_err_login_required'));
 }
 
 // All checks passed, yay!

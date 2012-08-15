@@ -1,49 +1,6 @@
 (function($) { // Play nice with possible other frameworks using the $ variable
 $(function() { // Execute this code as soon as the DOM is loaded
-    // Config settings    
-	// Run this code block when the page is fully loaded, including graphics
-	$(window).load(function() {
-            // Cast the setting!
-		$.ajax({
-			type: 'POST',
-			url: url_assets + 'connectors/connector.php?action=web/like',
-			cache: false,
-			dataType: 'json', // likedislike will send a json response
-			timeout: 15000, // Triggers the error handler after this duration
-
-			// We need to send a single mandatory POST
-			data: {
-				// This value confirms that we want to get settings
-				likedislike_setting: true
-			},
-
-			// Called if the request fails or times out.
-			// Parameter textStatus examples: "error", "parseerror", "timeout".
-			error: function(XMLHttpRequest, textStatus) {
-				$form.find('.error').text(textStatus);
-			},
-
-			// Called if the request succeeds
-			success: function(setting) {
-
-				// The server can not return the result
-				if ('error' in setting) {
-					// Display error message.
-					alert('Error server data');
-
-					// We're done with the "success" callback, jump to the "complete" callback
-					return;
-				}
-
-				// Update every setting
-				like_invalid_id = setting.setting.invalid_id;
-                                like_closed = setting.setting.closed;
-                                like_ip_blocked = setting.setting.ip_blocked;
-                                like_login_required = setting.login_required;
-			}
-		}); // $.ajax()
-	});
-
+	
 	// All likedislike items found on the page
 	var $forms = $('form.likedislike');
 
@@ -144,34 +101,26 @@ $(function() { // Execute this code as soon as the DOM is loaded
 			success: function(data) {
 
 				// The vote could not be cast
-				if ('error' in data) {
-					// Display a custom error message.
+				if ('error' in data) {					
 					// Also make sure the form has the correct classes applied.
-					switch (data.error) {
+					switch (data.error.error) {
 
 						case 'invalid_id':
 							$form.css('visibility', 'hidden'); // Hiding it like this prevents content shift
-							alert(like_invalid_id);
 							break;
 
 						case 'closed':
 							$form.addClass('closed disabled');
-							alert(like_closed);
 							break;
 
 						case 'already_voted':
 						case 'ip_blocked':
 							$form.addClass('user_voted disabled');
-							alert(like_ip_blocked);
 							break;
-
-						case 'login_required':
-							alert(like_login_required);
-							break;
-
-						default:
-							alert(data.error);
 					}
+					
+					// Display a custom error message.
+					alert(data.error.lang_error);
 
 					// We're done with the "success" callback, jump to the "complete" callback
 					return;
