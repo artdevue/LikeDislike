@@ -1,1 +1,2 @@
-Changelog file for likeDislike component.
+# August 16, 2012, version 1.0.0 beta2
+-> when loading the resource removed Ajax request. Now we get the data from the Ajax only when someone clicks on an item LikeDislike.
