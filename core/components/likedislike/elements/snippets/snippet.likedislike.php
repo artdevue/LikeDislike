@@ -55,7 +55,7 @@ $resArray = $likedislike->format_item ($format, $rez, $round);
 
 /* output parameters to retrieve the item */
 $rez['result_up'] = $resArray['result'][0];
-$rez['result_down'] = $resArray['result'][1];
+$rez['result_down'] = isset($resArray['result'][1]) ? $resArray['result'][1] : '';
 
 /* know the length of the output and demand, if we establish the desired class  */
 $rez['squeeze'] = '';

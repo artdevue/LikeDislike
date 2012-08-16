@@ -51,7 +51,7 @@ class likeDislike {
              ** * when creating a LikeDislike item, this template will be used.
              ** * * All available templates can be found in the templates directory. $modx->getOption('ace.theme', null, 'textmate')
              ** * * */
-            'default_template' => $this->modx->getOption('likedislike.default_template',$config,'mini_likedislik'),
+            'default_template' => $this->modx->getOption('likedislike.defaultTemplate',null,'mini_likedislik'),
             /**
              ** (array) List of the default formats to use for each template. Each format string
              ** * defines which values to output and how. Six variables are available (wrapped in braces):
@@ -76,19 +76,19 @@ class likeDislike {
             * that contains the current item ID, the user won't be able to vote for it again.
             * Note: disabling this check will turn off any likeDislike cookies to be sent.
             */
-            'cookie_check' => $this->modx->getOption('likedislike.cookieCheck',$config,TRUE), // TRUE or FALSE
+            'cookie_check' => $this->modx->getOption('likedislike.cookieCheck',null,TRUE), // TRUE or FALSE
             
            /**
             * (string) The name of the likeDislike cookie.
             */
-           'cookie_name' => $this->modx->getOption('likedislike.cookieName',$config,'likedislike'),
+           'cookie_name' => $this->modx->getOption('likedislike.cookieName',null,'likedislike'),
            
            /**
             * (integer) The lifetime of the cookie. In other words, the number of seconds
             * since the last vote before the cookie expires and gets deleted.
             * If set to 0, the cookie will expire when the browser closes.
             */
-           'cookie_lifetime' => $this->modx->getOption('likedislike.cookieLifetime',$config,(3600 * 24 * 365)), // 1 year
+           'cookie_lifetime' => $this->modx->getOption('likedislike.cookieLifetime',null,(3600 * 24 * 365)), // 1 year
            
            /**
             * (string) The path on the server in which the cookie will be available on.
@@ -96,7 +96,7 @@ class likeDislike {
             * See: http://php.net/manual/function.setcookie.php
             * Most of the time, you can just leave this as is.
             */
-           'cookie_path' => $this->modx->getOption('likedislike.cookiePath',$config,'/'),
+           'cookie_path' => $this->modx->getOption('likedislike.cookiePath',null,'/'),
            
            /**
             * (string) The domain that the cookie is available on. You can make the cookie
@@ -104,21 +104,21 @@ class likeDislike {
             * See: http://php.net/manual/function.setcookie.php
             * Most of the time, you can just leave this as is.
             */
-           'cookie_domain' => $this->modx->getOption('likedislike.cookieDomain',$config,''),
+           'cookie_domain' => $this->modx->getOption('likedislike.cookieDomain',null,''),
            
            /**
             * (boolean) Enable or disable an IP check when a user votes. If a previous vote
             * for the item is found with the same IP, the user won't be able to vote for it again.
             * Note: disabling this check will stop IP addresses from being stored upon vote.
             */
-           'ip_check' => (boolean)$this->modx->getOption('likedislike.ipCheck',$config,FALSE), // TRUE or FALSE
+           'ip_check' => (boolean)$this->modx->getOption('likedislike.ipCheck',null,FALSE), // TRUE or FALSE
            
            /**
             * (integer) The lifetime of an IP address. A user with the same IP address can vote
             * for an item after this number of seconds has past since the last vote from the IP.
             * If set to 0, IP addresses will not expire.
             */
-           'ip_lifetime' => $this->modx->getOption('likedislike.ipLifetime',$config,0),
+           'ip_lifetime' => $this->modx->getOption('likedislike.ipLifetime',null,0),
                       
            /**
             * (boolean) Enable or disable a user ID check when a user votes. This will prevent
@@ -126,20 +126,20 @@ class likeDislike {
             * Note: this check does not prevent guests from voting. Set user_login_required to TRUE if you want to do so.
             * Note: in order for this check to work, you need to supply a user_id_callback.
             */
-           'user_id_check' => (boolean)$this->modx->getOption('likedislike.userIdCheck',$config,FALSE), // TRUE or FALSE
+           'user_id_check' => (boolean)$this->modx->getOption('likedislike.userIdCheck',null,FALSE), // TRUE or FALSE
            
            /**
             * (boolean) If set to TRUE, users will have to be logged in in order to vote.
             * Guests won't be able to vote.
             */
-           'user_login_required' => (boolean)$this->modx->getOption('likedislike.userLoginRequired',$config,FALSE), // TRUE or FALSE
+           'user_login_required' => (boolean)$this->modx->getOption('likedislike.userLoginRequired',null,FALSE), // TRUE or FALSE
            
            /**
             * (boolean) Enable or disable debug mode. You should only enable this if
             * something is going wrong with your likeDislike installation.
             * Enabling debug mode will show errors.
             */
-           'debug' => $this->modx->getOption('debug',$config,FALSE), // TRUE or FALSE
+           'debug' => $this->modx->getOption('debug',null,FALSE), // TRUE or FALSE
         );
         return isset($opt) ? $configlike[$opt] : null;
     }
@@ -309,7 +309,7 @@ class likeDislike {
     */
     public function add_id($id){
         // Don't add double ids
-	if (self::find_id($id))
+    if (self::find_id($id))
             return TRUE;
         
         // Add the id to the cookie string.
