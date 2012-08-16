@@ -1,17 +1,10 @@
 # LikeDislike
-
-**LikeDislike flexible extension of voting for MODX Revolution. It allows visitors to vote for anything you want on your website.**
-
-[Homepage](http://like.artdevue.com)
-[MODX extras](http://modx.com/extras/package/likedislike)
-
-
-
-# LikeDislike
 ========
 
 LikeDislike flexible extension of voting for MODX Revolution. It allows visitors to vote for anything you want on your website.
+
 [Homepage](http://like.artdevue.com)
+
 [MODX extras](http://modx.com/extras/package/likedislike)
 
 ## Quick Start
