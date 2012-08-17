@@ -1,6 +1,7 @@
 <form method="post" id="likedislike_[[+like.id]]" class="likedislike likedislik_up_down[[+like.class]]" name="likedislik_up_down">
     <input type="hidden" name="likedislike_id" value="[[+like.id]]" />
 	<input type="hidden" name="likedislike_format" value="[[+like.format]]" />
+    <input type="hidden" name="likedislike_round" value="[[+like.round]]" />
 
 	<strong class="result1 error[[+like.squeeze]]" title="Votes up">[[+like.result_up]]</strong>
 	<strong class="result2 error[[+like.squeeze]]" title="Votes down">[[+like.result_down]]</strong>

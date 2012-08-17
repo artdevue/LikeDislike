@@ -1,6 +1,7 @@
 <form method="post" id="likedislike_[[+like.id]]" class="likedislike buttons[[+like.class]]" name="buttons">
     <input type="hidden" name="likedislike_id" value="[[+like.id]]" />
 	<input type="hidden" name="likedislike_format" value="[[+like.format]]" />
+    <input type="hidden" name="likedislike_round" value="[[+like.round]]" />
 
 	<span class="result1 error">[[+like.result_up]] [[like.question]]</span>
 	<span class="question">[[+like.question]]</span>
