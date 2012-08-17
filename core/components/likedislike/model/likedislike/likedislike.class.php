@@ -422,9 +422,10 @@ class likeDislike {
         }
         
         $item = $sth->toArray();
-        $this->modx->cacheManager->set($keyitemmd,$item,0,array(
-            xPDO::OPT_CACHE_KEY => 'likedislike/itemslike/'.$nameArray[0].'/'.$nameArray[1],
-        ));
+        if(isset($keyitemmd) AND isset($nameArray))
+            $this->modx->cacheManager->set($keyitemmd,$item,0,array(
+                xPDO::OPT_CACHE_KEY => 'likedislike/itemslike/'.$nameArray[0].'/'.$nameArray[1],
+            ));
         
         return $item;
     }
