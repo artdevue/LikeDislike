@@ -34,7 +34,7 @@ $out = '';
 $closed = false;
 
 /* merge the resulting object, and our data are recalculated */
-$item = array_merge ($rez, $likedislike->calculate_votes($item['votes_up'],$item['votes_down']));
+$item = array_merge ($rez, $likedislike->calculate_votes($rez['votes_up'],$rez['votes_down']));
 
 /* check and adjust the elements */
 $rez['class'] = $rez['closed'] != 0 ? ' closed' : '';
