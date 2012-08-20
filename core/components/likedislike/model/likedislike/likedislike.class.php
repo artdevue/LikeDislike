@@ -455,7 +455,8 @@ class likeDislike {
             // We only load the most recent one to check the lifetime later on.
             $sth = $this->modx->getObject('LikedislikeVotes',array('item_id' => $item['id'], 'ip' => $ip));
             // A record with the IP was found
-            if ($date = (int) $sth->date){
+            if (isset($sth->date)){
+                $date = (int)$sth->date;
                 if ( ! $this->options('ip_lifetime') OR $date > time() - $this->options('ip_lifetime')){
                     // If the IP lifetime is unlimited or the vote date
                     // still falls within the lifetime, mark the item as voted on.

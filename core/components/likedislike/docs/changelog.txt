@@ -1,3 +1,6 @@
+# August 20, 2012, version 1.0.0 beta4
+-> One mistake when enabling likedislike.userLoginRequired configured LikeDislike
+
 # August 17, 2012, version 1.0.0 beta3
 -> Correction of errors on the non-existent objects, and if enabled printing error output
 
