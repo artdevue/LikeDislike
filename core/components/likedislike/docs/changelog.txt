@@ -1,3 +1,6 @@
+# August 25, 2012, version 1.0.0 beta5
+-> Fixed a bug in the class LikeDislike line 514, not the right event for error says. 
+
 # August 20, 2012, version 1.0.0 beta4
 -> One mistake when enabling likedislike.userLoginRequired configured LikeDislike
 
