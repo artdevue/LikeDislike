@@ -510,7 +510,7 @@ class likeDislike {
         $keyitem = md5('likedislike::'.$name);
         
         // Remove the cache file
-        if($this->modx->cacheManager->refresh(array('likedislike' => array('itemslike' => array($nameArray[0] =>array($nameArray[1] => array($keyitem.'.cache.php')))))))
+        if(!$this->modx->cacheManager->refresh(array('likedislike' => array('itemslike' => array($nameArray[0] =>array($nameArray[1] => array($keyitem.'.cache.php')))))))
             $this->modx->log(modX::LOG_LEVEL_ERROR, "LikeDislike -> Failed to clear the cache for the object with name ".$name);
         
         return true;
