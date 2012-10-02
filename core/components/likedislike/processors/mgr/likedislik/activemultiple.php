@@ -47,7 +47,7 @@ if(isset($scriptProperties['mode'])){
 		$keyitem = md5('likedislike::'.$name);
 			
 		// Remove the cache file
-		if($modx->cacheManager->refresh(array('likedislike' => array('itemslike' => array($nameArray[0] =>array($nameArray[1] => array($keyitem.'.cache.php')))))))
+		if(!$modx->cacheManager->delete($keyitem,array(xPDO::OPT_CACHE_KEY => 'likedislike/itemslike/'.$nameArray[0].'/'.$nameArray[1])))
 			$modx->log(modX::LOG_LEVEL_ERROR, "LikeDislike -> Failed to clear the cache for the object with id ".$name);
 	}
 }

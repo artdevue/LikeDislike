@@ -7,9 +7,9 @@ Author: Valentin Rasulov <info@artdevue.com>
 
 LikeDislike flexible extension of voting for MODX Revolution. It allows visitors to vote for anything you want on your website.
 
-Homepage - http://like.artdevue.com
+Homepage and documentation - http://like.artdevue.com
 The source code - - http://github.com/artdevue/LikeDislike
-bag - http://artdevue.com:3000/projects/like/issues
+Issues  - https://github.com/artdevue/LikeDislike/issues
 
 # Quick Start
 In a convenient location site template you need to insert a snippet

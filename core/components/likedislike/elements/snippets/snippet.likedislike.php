@@ -20,6 +20,7 @@ $name = $modx->getOption('name',$scriptProperties,$modx->resource->get('pagetitl
 $question = $modx->getOption('question',$scriptProperties, $modx->lexicon('likedislike.question'));
 $round = $modx->getOption('round',$scriptProperties,0);
 $align = $modx->getOption('align',$scriptProperties,$options['align']);
+$rating = $modx->getOption('rating',$scriptProperties,0);
 
 /* load the object if the object or create a new */
 $rez = $likedislike->load_item($category.'::'.$likeId.'::'.$name);
@@ -63,11 +64,14 @@ if($tpl == 'likedislik_up_down'){
     $rez['squeeze'] = max(strlen($rez['result_up']), strlen($rez['result_down'])) > 5 ? ' squeeze' : '';
 }
 if($tpl == 'likedislik_up'){
-    $rez['squeeze'] = strlen($rez['result_up']) > 4 ? ' squeeze' : '';    
+    $rez['squeeze'] = strlen($rez['result_up']) > 4 ? ' squeeze' : '';
 }
 if($tpl == 'up_down'){
-    $rez['squeeze'] = strlen($rez['result_up']) > 3 ? ' squeeze' : '';    
+    $rez['squeeze'] = strlen($rez['result_up']) > 3 ? ' squeeze' : '';
 }
+// Add a parameter to the specified rating of the property type. Parameters separated by a comma
+$ratid = strlen($rating) > 5 ? ',res='.$modx->resource->get('id') : '';
+$rez['rating'] = $rating.$ratid;
 
 /* add the prefix "like." to our array  */
 $rez = array_combine(array_map(create_function('$k', 'return "like.".$k;'), array_keys($rez)), array_values($rez));

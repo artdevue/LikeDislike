@@ -2,7 +2,10 @@
 /**
  * LikeDislike
  */
-        
+
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
+
 $likedislike = $modx->getService('likedislike','likeDislike',$modx->getOption('likedislike.core_path',null,$modx->getOption('core_path').'components/likedislike/').'model/likedislike/',$scriptProperties);
 if (!($likedislike instanceof likeDislike)) return ' no conect likeDislike';
 
@@ -102,8 +105,31 @@ if (empty($error)){
     
     if(!$sth->save()) {
         if ($likedislike->options('debug')) $modx->log(modX::LOG_LEVEL_ERROR, "I can not create an entry for obgect LikedislikeItems - item ".$item['id']);
+    }else{
+        // If there is a value in the POST variable likedislike_tv, then add the score for the specified property type. Parameters separated by a comma
+        $datRating = htmlspecialchars(trim($_POST['likedislike_rating']));
+        $itemsEvents = $item;
+        if(strlen($datRating) > 5){
+            $arrayDatRating = explode(',',trim($datRating));
+            $checkRating = array('type','tv','output','res','column');
+            foreach ($arrayDatRating as $adr){
+                $dr = explode('=',$adr);
+                if (in_array($dr[0], $checkRating)) {
+                    $arrayDR[$dr[0]] = trim($dr[1]);
+                }
+            }
+            $checkOut = array('votes_up','votes_down','votes_total','votes_balance','votes_pct_up','votes_pct_down');
+            $checkColumn = array('properties','longtitle','description','introtext');
+            $itemsEvents['tvRat'] = isset($arrayDR['tv']) ? $arrayDR['tv'] : 'likeDislike';
+            $itemsEvents['outputRat'] = (isset($arrayDR['output']) AND in_array($arrayDR['output'], $checkOut)) ? $arrayDR['output'] : 'votes_balance';
+            $itemsEvents['typeRat'] = (isset($arrayDR['type']) AND $arrayDR['type'] == 2) ? 2 : 1;
+            $itemsEvents['resRat'] = intval($arrayDR['res']);
+            $itemsEvents['column'] = (isset($arrayDR['column']) AND in_array($arrayDR['column'], $checkColumn)) ? $arrayDR['column'] : 'description';
+        }
+
+        // Transfer data to the system event OnlikeDislikeSave
+        $modx->invokeEvent('OnlikeDislikeSave', $itemsEvents);
     }
-    
     
     // The current user has just cast a vote
     $item['user_voted'] = TRUE;

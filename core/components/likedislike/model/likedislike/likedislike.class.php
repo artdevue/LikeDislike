@@ -25,7 +25,8 @@ class likeDislike {
             'jsUrl' => $assetsUrl.'js/',
             'cssUrl' => $assetsUrl.'css/',
             'assetsUrl' => $assetsUrl,
-            'connectorUrl' => $assetsUrl.'connector.php',            
+            'connectorUrl' => $assetsUrl.'connector.php',
+            'idResorcesLike' => null,
         ),$config);
         
         $this->modx->addPackage('likedislike',$this->config['modelPath']);
@@ -200,7 +201,7 @@ class likeDislike {
     *
     * @return  boolean  TRUE if blocked, FALSE if not
     */
-    public function ip_blocked($ip){
+    public function ip_blocked($ip = null){
         // (array) List of IP numbers that are blocked. This means they cannot vote for any items.
         // Note: you can set wildcards by using the * symbol.
         $inCache = FALSE;
@@ -216,7 +217,6 @@ class likeDislike {
             }
         }
         if(!$inCache) {
-            $this->modx->cacheManager->set('test4',$color);
             $qip = $this->modx->newQuery('LikedislikeIpBlock');
             $qip->select(array('LikedislikeIpBlock.id', 'LikedislikeIpBlock.ip'));
             $qip->prepare();
@@ -572,7 +572,7 @@ class likeDislike {
         // If any output has been sent, setcookie() will fail.
         // If we're not in debug mode, we'll fail silently.
         if (headers_sent() AND ! $this->options('debug'))
-            $modx->log(modX::LOG_LEVEL_ERROR, "I can not set the cookie");
+            $this->modx->log(modX::LOG_LEVEL_ERROR, "I can not set the cookie");
             
         // Should return TRUE; does not necessarily mean the user accepted the cookie, though
         return setcookie($this->options('cookie_name'), $cookie, $expire, $this->options('cookie_path'), $this->options('cookie_domain'));

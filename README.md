@@ -51,6 +51,10 @@ The item name (ITEM_NAME) may be omitted if you visit a call LikeDislike, becaus
 
 Call LikeDislike should **NOT CACHE**
 
+## Added property to display the results in the field of TV or a resource 
+
+in more [detail](http://like.artdevue.com/en/help.html#output-target)
+
 ### More on the election of the template and output format on the page [help](http://like.artdevue.com/en/help.html)
 
 ### Authors

@@ -2,6 +2,7 @@
     <input type="hidden" name="likedislike_id" value="[[+like.id]]" />
 	<input type="hidden" name="likedislike_format" value="[[+like.format]]" />
     <input type="hidden" name="likedislike_round" value="[[+like.round]]" />
+    <input type="hidden" name="likedislike_rating" value="[[+like.rating]]" />
 
 	<strong class="result1 error[[+like.squeeze]]">[[+like.result_up]]</strong>
 

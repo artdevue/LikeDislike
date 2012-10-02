@@ -12,8 +12,8 @@ set_time_limit(0);
 /* define package names */
 define('PKG_NAME','LikeDislike');
 define('PKG_NAME_LOWER','likedislike');
-define('PKG_VERSION','1.0.0');
-define('PKG_RELEASE','beta5');
+define('PKG_VERSION','1.0.1');
+define('PKG_RELEASE','rc1');
  
 /* define build paths */
 $root = dirname(dirname(__FILE__)).'/';
@@ -108,11 +108,11 @@ $attr = array(
             xPDOTransport::UPDATE_OBJECT => true,
             xPDOTransport::UNIQUE_KEY => 'name',
         ),
-        'Chunks' => array (
+        /*'Chunks' => array (
             xPDOTransport::PRESERVE_KEYS => false,
             xPDOTransport::UPDATE_OBJECT => false,
             xPDOTransport::UNIQUE_KEY => 'name',
-        ),
+        ),*/
 	'Plugins' => array (
 		xPDOTransport::PRESERVE_KEYS => false,
 		xPDOTransport::UPDATE_OBJECT => true,
@@ -155,6 +155,23 @@ if (!is_array($settings)) {
     $modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($settings).' System Settings.');
 }
 unset($settings,$setting,$attributes);
+
+/* load LikeDislike events */
+$events = include $sources['data'].'transport.events.php';
+if (!is_array($events)) {
+    $modx->log(modX::LOG_LEVEL_ERROR,'Could not package in events.');
+} else {
+    $attributes = array (
+        xPDOTransport::PRESERVE_KEYS => true,
+        xPDOTransport::UPDATE_OBJECT => true,
+    );
+    foreach ($events as $event) {
+        $vehicle = $builder->createVehicle($event,$attributes);
+        $builder->putVehicle($vehicle);
+    }
+    $modx->log(xPDO::LOG_LEVEL_INFO,'Packaged in '.count($events).' LikeDislike events.');
+}
+unset ($events, $event, $attributes);
 
 /* load menu */
 $menu = include $sources['data'].'transport.menu.php';

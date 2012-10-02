@@ -15,7 +15,7 @@ $requestCorePath = $modx->getOption('likedislike.core_path',null,$modx->getOptio
  * */
 if ($_REQUEST['action'] == 'web/like') {
     $version = $modx->getVersionData();
-    if (version_compare($version['full_version'],'2.2.2-pl') >= 0) {
+    if (version_compare($version['full_version'],'2.2.0-pl2') >= 0) {
         if ($modx->user->hasSessionContext($modx->context->get('key'))) {
             $_SERVER['HTTP_MODAUTH'] = $_SESSION["modx.{$modx->context->get('key')}.user.token"];
         } else {

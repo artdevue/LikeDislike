@@ -1,11 +1,18 @@
+# October 1, 2012, version 1.0.1 rc1
+[0009] Created a system event OnlikeDislikeSave
+[0008] Fixed a problem MODx version to compare in connector.php (https://github.com/artdevue/LikeDislike/issues/2)
+[0007] Small fix code
+[0006] Can be a resource to display any field vote convenient resource for statistics
+[0005] Added property to display the results in the field of TV or a resource in more detail http://like.artdevue.com/en/help.html#output-target
+
 # August 25, 2012, version 1.0.0 beta5
--> Fixed a bug in the class LikeDislike line 514, not the right event for error says. 
+[0004] Fixed a bug in the class LikeDislike line 514, not the right event for error says.
 
 # August 20, 2012, version 1.0.0 beta4
--> One mistake when enabling likedislike.userLoginRequired configured LikeDislike
+[0003] One mistake when enabling likedislike.userLoginRequired configured LikeDislike
 
 # August 17, 2012, version 1.0.0 beta3
--> Correction of errors on the non-existent objects, and if enabled printing error output
+[0002] Correction of errors on the non-existent objects, and if enabled printing error output
 
 # August 16, 2012, version 1.0.0 beta2
--> when loading the resource removed Ajax request. Now we get the data from the Ajax only when someone clicks on an item LikeDislike.
+[0001] when loading the resource removed Ajax request. Now we get the data from the Ajax only when someone clicks on an item LikeDislike.

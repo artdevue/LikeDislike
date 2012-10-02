@@ -2,6 +2,7 @@
     <input type="hidden" name="likedislike_id" value="[[+like.id]]" />
 	<input type="hidden" name="likedislike_format" value="[[+like.format]]" />
     <input type="hidden" name="likedislike_round" value="[[+like.round]]" />
+    <input type="hidden" name="likedislike_rating" value="[[+like.rating]]" />
 
 	<span class="graph up"   style="width:[[+like.votes_pct_up]]%;   background-color:[[+like.color_up]]"></span>
 	<span class="graph down" style="width:[[+like.votes_pct_down]]%; background-color:[[+like.color_down]]"></span>
