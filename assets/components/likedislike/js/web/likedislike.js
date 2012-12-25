@@ -81,8 +81,9 @@ $(function() { // Execute this code as soon as the DOM is loaded
 
 			// We need to send three required POST fields
 			data: {
-				// These values comes from hidden inputs
+				// This value of User Authenticated Context
 				ctx: likedislike_ctx,
+				// These values comes from hidden inputs
 				likedislike_id: $form.find('input[name=likedislike_id]').val(),
 				likedislike_format: $form.find('input[name=likedislike_format]').val(),
                  		likedislike_round: $form.find('input[name=likedislike_round]').val(),
