@@ -1,3 +1,6 @@
+# December 26, 2012, version 1.0.3 rc1
+[0010] issues #5 Checking the registered user (https://github.com/artdevue/LikeDislike/issues/5). Problem in providing context for the user.
+
 # October 1, 2012, version 1.0.1 rc1
 [0009] Created a system event OnlikeDislikeSave
 [0008] Fixed a problem MODx version to compare in connector.php (https://github.com/artdevue/LikeDislike/issues/2)

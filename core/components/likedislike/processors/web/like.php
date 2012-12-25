@@ -51,7 +51,7 @@ if ( ! preg_match('/^[0-9]++$/D', (string) $_POST['likedislike_id']) OR ! is_str
 // Clean form input
 $id   = (int) $_POST['likedislike_id'];
 $vote = (int) $_POST['likedislike_vote'];
-$ctx = (string) $_POST['likedislike_ctx'];
+$ctx = (string) $_POST['ctx'];
 $round = $_POST['likedislike_round'] ? (int) $_POST['likedislike_round'] : 0;
 
 /// Is the current user blocked by IP?

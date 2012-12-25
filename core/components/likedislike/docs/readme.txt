@@ -1,7 +1,7 @@
 --------------------
 Extra: LikeDislike
 --------------------
-Version: 1.0.0 beta1
+Version: 1.0.3-rc1
 Since: August 12th, 2012
 Author: Valentin Rasulov <info@artdevue.com>
 
