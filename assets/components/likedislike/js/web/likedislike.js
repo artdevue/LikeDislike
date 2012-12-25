@@ -82,10 +82,11 @@ $(function() { // Execute this code as soon as the DOM is loaded
 			// We need to send three required POST fields
 			data: {
 				// These values comes from hidden inputs
+				ctx: likedislike_ctx,
 				likedislike_id: $form.find('input[name=likedislike_id]').val(),
 				likedislike_format: $form.find('input[name=likedislike_format]').val(),
-                likedislike_round: $form.find('input[name=likedislike_round]').val(),
-                likedislike_rating: $form.find('input[name=likedislike_rating]').val(),
+                 		likedislike_round: $form.find('input[name=likedislike_round]').val(),
+                		likedislike_rating: $form.find('input[name=likedislike_rating]').val(),
 
 				// The actual vote value: 0=down, 1=up.
 				// It is passed as an extra parameter to the thumsup_vote event.
