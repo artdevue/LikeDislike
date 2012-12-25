@@ -8,7 +8,7 @@
  */
  
 $js = '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>';
-$js_connect = (boolean)$jsConnect ? $js : '';
+$js_connect = (boolean) $jsConnect ? $js : '';
 $like_url = $modx->config['assets_url'].'components/likedislike/';
 
 $modx->regClientCSS($modx->config['assets_url'].'components/likedislike/css/styles.css');
