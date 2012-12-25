@@ -51,6 +51,7 @@ if ( ! preg_match('/^[0-9]++$/D', (string) $_POST['likedislike_id']) OR ! is_str
 // Clean form input
 $id   = (int) $_POST['likedislike_id'];
 $vote = (int) $_POST['likedislike_vote'];
+$ctx = (string) $_POST['likedislike_ctx'];
 $round = $_POST['likedislike_round'] ? (int) $_POST['likedislike_round'] : 0;
 
 /// Is the current user blocked by IP?
@@ -75,7 +76,7 @@ elseif ($item['user_voted']){
 }
 
 // You have to be logged in to vote
-elseif ($likedislike->options('user_login_required') AND !$this->modx->user->isAuthenticated($modx->context->get('key'))){
+elseif ($likedislike->options('user_login_required') AND !$this->modx->user->isAuthenticated($ctx)){
     $error = array('error'=>'login_required', 'lang_error'=>$modx->lexicon('likedislike.likedislik_err_login_required'));
 }
 
