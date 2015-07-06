@@ -24,7 +24,7 @@ $(function() { // Execute this code as soon as the DOM is loaded
 	});
 
 	// The big likedislike form submission handler triggered by all templates
-	$forms.bind('thumsup_vote', function(event, vote) {
+	$forms.on('thumsup_vote', function(event, vote) {
 
 		var $form = $(this), // Cache the selection. Also allows for better compression of the file.
 			template = $form.attr('name'); // The name of the template used by the submitted form
@@ -156,7 +156,7 @@ $(function() { // Execute this code as soon as the DOM is loaded
 				$form.removeClass('busy');
 			}
 		}); // $.ajax()
-	}); // $forms.bind('thumsup_vote')
+	}); // $forms.on('thumsup_vote')
 
 	// Run this code block when the page is fully loaded, including graphics
 	$(window).load(function() {
