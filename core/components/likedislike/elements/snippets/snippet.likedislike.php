@@ -74,7 +74,7 @@ $ratid = strlen($rating) > 5 ? ',res='.$modx->resource->get('id') : '';
 $rez['rating'] = $rating.$ratid;
 
 /* add the prefix "like." to our array  */
-$rez = array_combine(array_map(create_function('$k', 'return "like.".$k;'), array_keys($rez)), array_values($rez));
+$rez = array_combine(array_map(function ($k) { return "like.".$k; }, array_keys($rez)), array_values($rez));
 
 /* Processes and returns the output from an HTML chunk by name template.  */
 $out = $likedislike->getChunk($tpl,$rez);
